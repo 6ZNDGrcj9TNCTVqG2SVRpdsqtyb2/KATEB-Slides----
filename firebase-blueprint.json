@@ -1,0 +1,93 @@
+{
+  "entities": {
+    "CloudPresentation": {
+      "title": "CloudPresentation",
+      "description": "Synchronized KATEB Slides presentation document stored under the authenticated user's scope.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Firebase Auth UID of the presentation owner."
+        },
+        "title": {
+          "type": "string",
+          "description": "Display title of the presentation (1..200 chars)."
+        },
+        "description": {
+          "type": "string",
+          "description": "Optional summary or subtitle (0..1000 chars)."
+        },
+        "languageCode": {
+          "type": "string",
+          "description": "Language code (AR, EN, FA, RU, IT, UR, ZH)."
+        },
+        "aspectRatioId": {
+          "type": "string",
+          "description": "Slide aspect ratio identifier."
+        },
+        "themeId": {
+          "type": "string",
+          "description": "Active theme identifier."
+        },
+        "sourceType": {
+          "type": "string",
+          "description": "Origin type (MANUAL, TEMPLATE, AI)."
+        },
+        "slideCount": {
+          "type": "integer",
+          "description": "Number of slides in the deck (0..500)."
+        },
+        "folderTag": {
+          "type": "string",
+          "description": "Folder or workspace organization tag (1..64 chars)."
+        },
+        "locked": {
+          "type": "boolean",
+          "description": "Whether the presentation requires biometric unlock."
+        },
+        "deleted": {
+          "type": "boolean",
+          "description": "Soft-delete tombstone flag for multi-device sync."
+        },
+        "payloadJson": {
+          "type": "string",
+          "description": "Serialized PresentationDeck payload (<= 900000 chars)."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when created (FieldValue.serverTimestamp())."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Server timestamp when last updated (FieldValue.serverTimestamp())."
+        }
+      },
+      "required": [
+        "userId",
+        "title",
+        "description",
+        "languageCode",
+        "aspectRatioId",
+        "themeId",
+        "sourceType",
+        "slideCount",
+        "folderTag",
+        "locked",
+        "deleted",
+        "payloadJson",
+        "createdAt",
+        "updatedAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/presentations/{presentationId}": {
+      "schema": {
+        "$ref": "#/entities/CloudPresentation"
+      },
+      "description": "User-scoped synced presentations owned strictly by userId."
+    }
+  }
+}

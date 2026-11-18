@@ -1,0 +1,6 @@
+{
+  "name": "KATEB Slides",
+  "description": "Smart presentation editor inspired by PowerPoint with Arabic/English/Persian RTL/LTR support, rich slide canvas, templates, PPTX/PDF/Image/MP4 export, and AI assistant.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
